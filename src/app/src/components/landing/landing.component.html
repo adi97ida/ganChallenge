@@ -1,0 +1,14 @@
+<div class="search-box">
+  <mat-form-field class="search-box-form-field" appearance="fill">
+    <mat-label>I'm looking for ...</mat-label>
+    <input matInput type="text" [formControl]="searchFormControl">
+    <mat-hint align="start"><strong>Search by Author, Name or Tags</strong> </mat-hint>
+    <button *ngIf="searchFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchFormControl.reset()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="last-added-books">
+  <app-book-card-view *ngFor="let book of lastAddedBooks; trackBy: booksService.trackBookById" [book]="book"></app-book-card-view>
+</div>

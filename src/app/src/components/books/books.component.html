@@ -1,0 +1,7 @@
+
+
+<div class="content">
+  <div fxLayout="row wrap">
+    <app-book-card-view fxFlex="25%" *ngFor="let book of allBooks; trackBy: booksService.trackBookById" [book]="book"></app-book-card-view>
+  </div>
+</div>

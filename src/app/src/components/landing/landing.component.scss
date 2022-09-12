@@ -1,0 +1,20 @@
+.search-box {
+  display: flex;
+  justify-content: center;
+}
+
+.search-box-form-field {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.last-added-books {
+  display: flex;
+}
+
+app-book-card-view {
+  padding: 5px;
+  display: block;
+  height: 100%;
+}
