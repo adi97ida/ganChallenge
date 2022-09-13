@@ -1,14 +1,40 @@
 <div class="search-box">
   <mat-form-field class="search-box-form-field" appearance="fill">
     <mat-label>I'm looking for ...</mat-label>
-    <input matInput type="text" [formControl]="searchFormControl">
-    <mat-hint align="start"><strong>Search by Author, Name or Tags</strong> </mat-hint>
-    <button *ngIf="searchFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchFormControl.reset()">
+    <input matInput type="text" [formControl]="searchFormControl" />
+    <mat-hint align="start"
+      ><strong>Search by Author, Name or Tags</strong>
+    </mat-hint>
+    <button
+      *ngIf="searchFormControl.value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="searchFormControl.reset()"
+    >
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
 </div>
 
-<div class="last-added-books">
-  <app-book-card-view *ngFor="let book of lastAddedBooks; trackBy: booksService.trackBookById" [book]="book"></app-book-card-view>
+<div class="content">
+  <div fxLayout="row wrap" *ngIf="!isSearching">
+    <app-book-card-view
+      fxFlex="33%"
+      *ngFor="let book of lastAddedBooks; trackBy: booksService.trackBookById"
+      [book]="book"
+    ></app-book-card-view>
+  </div>
+
+  <div fxLayout="row wrap" *ngIf="isSearching && searchResults?.length">
+    <app-book-card-view
+      fxFlex="25%"
+      *ngFor="let book of searchResults; trackBy: booksService.trackBookById"
+      [book]="book"
+    ></app-book-card-view>
+  </div>
+
+  <div class='no-results-found' *ngIf='isSearching && !searchResults?.length'>
+    <h2>No results found :(</h2>
+  </div>
 </div>

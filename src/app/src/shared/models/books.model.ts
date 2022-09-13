@@ -3,8 +3,8 @@ export type Book = {
   name: string;
   author: string;
   year: string;
-  tags?: string;
+  tags?: string[];
   description: string;
   image: string;
   addedAt: Date;
-}
+};

@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>
+  {{ data.book.name }}, written by {{ data.book.author }} and published in {{data.book.year}}
+</h2>
+<div class="genre">
+  <mat-chip-list *ngIf="data.book.tags?.length" aria-label="Literary genre">
+    <h4>Literary genres:</h4>
+    <mat-chip *ngFor="let tag of data.book.tags" [disableRipple]="true">{{
+      tag
+    }}</mat-chip>
+  </mat-chip-list>
+</div>
+<mat-dialog-content class="mat-typography">
+  <div class="image">
+    <img [src]="data.book.image" [alt]="'Photo of ' + data.book.name" />
+  </div>
+  <div class="description">{{ data.book.description }}</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Close</button>
+</mat-dialog-actions>

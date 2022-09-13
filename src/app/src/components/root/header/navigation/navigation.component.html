@@ -1,3 +1,8 @@
 <div class="navigation">
-  <button mat-button>All the books</button>
+  <button *ngIf="isActiveRoute('landing')" mat-button routerLink="books">
+    All the books
+  </button>
+  <button *ngIf="isActiveRoute('books')" mat-button routerLink="landing">
+    Home
+  </button>
 </div>
